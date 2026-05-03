@@ -1,0 +1,35 @@
+body {
+    margin : 0;
+    text-align: center;
+    background-color: aliceblue;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    color: #111;
+}
+
+.score {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgb(0, 48, 25);
+    border-radius: 10%;
+    background-color: rgb(0, 175, 67);
+    font-weight: bold;
+}
+
+.money {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10%;
+    background-color: rgb(255, 251, 0);
+    font-weight: bold;
+}
+

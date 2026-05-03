@@ -85,3 +85,21 @@ input{
     
 }
 
+.return-container{
+    margin-top: 50px;
+}
+
+.return{
+    padding: 16px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.return:hover{
+    opacity: 1;
+}
+

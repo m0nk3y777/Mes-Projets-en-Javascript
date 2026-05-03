@@ -48,3 +48,24 @@ h1{
     box-shadow: 0 0 6px #00ff4166;
     border-radius: 2px;
 }
+
+.return-container{
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.return{
+    padding: 16px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.return:hover{
+    opacity: 1;
+}

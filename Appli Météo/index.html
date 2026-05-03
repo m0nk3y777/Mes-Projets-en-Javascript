@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteo-App</title>
+    <link rel = "stylesheet" href = "style.css"></link>
+</head>
+<body>
+
+    <h1> Meteo App Project</h1>
+    <div class="title-icons">
+        <img src="src/cloud.svg" width="50" height="50" alt="cloud">
+        <img src="src/sun.svg" width="50" height="50" alt="sun">
+    </div>
+    <div class = "container">
+        <input class = "search" id ="city" ></input>
+    </div> 
+    <div class = "container">
+        <button class = "btnsearch" id ="search">🔍</button>
+    </div>
+    <div class = "container-result">
+        <input class = "result" id ="result1" readonly placeholder="Latitude :"></div>
+        <input class = "result" id ="result2" readonly placeholder="Longitude :"></div>
+    </div>
+    <div class = "container-result">
+        <input class = "result" id ="result3" readonly placeholder="Température :"></div>
+        <input class = "result" id ="result4" readonly placeholder="Humidity :"></div>
+    </div>
+    <div id="forecast-container" class="forecast-container"></div>
+    <div>
+        <button class = "reset" id = "reset"> Reset </button>
+
+    </div>
+    <script src ="index.js"></script>
+</body>
+</html>

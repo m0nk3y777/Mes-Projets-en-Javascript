@@ -40,15 +40,15 @@ function mouv(e){
 
 function checkCollisions(){
     for (let i = 0 ; i< blocks.length ; i++){
-        if( ball.position[1] >= blocks[i].bottomLeft[1] &&
-            ball.position[1] <= blocks[i].topLeft[1] &&
+        if( ball.position[1] >= blocks[i].bottomLeft[1]-20 &&
+            ball.position[1] <= blocks[i].topLeft[1]  &&
             ball.position [0] >= blocks[i].bottomLeft[0] &&
             ball.position [0] <= blocks[i].bottomRight[0]
          ){ 
             const allBlocks = document.querySelectorAll(".block")
             allBlocks[i].classList.remove("block")
             ball.speedY *= -1
-            console.log("COLLISION !!")
+            // console.log("COLLISION !!")
             blocks.splice(i, 1)
             score += 10;
             scoreDisplay.innerHTML = String(score)

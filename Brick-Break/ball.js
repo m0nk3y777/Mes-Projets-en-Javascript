@@ -15,6 +15,7 @@ class Ball {
 
     mouvBall(){
     ball.position[1] -= this.speedY
+    ball.position[0] += this.speedX
 
     if(ball.position[1] <= currentPosition[1] + 18 && 
         this.speedY > 0 &&
@@ -27,6 +28,14 @@ class Ball {
         this.speedY *= -1
     }
 
+    if (ball.position[0] >= boardWidth - 20){
+        this.speedX *= -1
+    } 
+
+    if (ball.position[0] < 0){
+        this.speedX *= -1
+    } 
+
     if(ball.position[1] <= 0){
         clearInterval(timerId)
         scoreDisplay.innerHTML = "YOU LOOSE !"
@@ -34,6 +43,14 @@ class Ball {
         document.removeEventListener("keydown", mouv)
         return
     }
+
+    if(blocks.length === 0){
+        clearInterval(timerId)
+        scoreDisplay.innerHTML = "YOU WIN !"
+        document.removeEventListener("keydown", mouv)
+        return
+    }
+
 
     checkCollisions()
     ball.spawn()

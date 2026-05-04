@@ -1,5 +1,6 @@
 const grid = document.getElementById("grid")
 const score = document.getElementsByClassName("score")
+document.addEventListener("keydown",mouv)
 
 const userSpawn = [350,10]
 let currentPosition = userSpawn
@@ -16,18 +17,28 @@ function spawnUser(){
     user.style.bottom = currentPosition[1] + "px"
 }
 
-function mouv(){
-    addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft" && posX > 0){
-            posX -= 10
-        } else if (e.key === "ArrowRight" && posX < boardWidth - blockWidth ){
-            posX += 10
-        }
-        user.style.left = posX + "px"
-    })
+function mouv(e){
+    console.log(e.key)
+    switch(e.key){
+        case "ArrowLeft":
+            if(currentPosition[0] > 0){
+                currentPosition[0] -= 10
+                spawnUser()
+            }
+            break
+            
+        case "ArrowRight":
+            if(currentPosition[0] < boardWidth - 100 ){
+                currentPosition[0] += 10
+                spawnUser()
+            }
+            break
+    }
 }
 
-mouv()
+
+
+document.addEventListener("keydown",mouv)
 drawBlocks()
 spawnUser()
 ball.spawn()

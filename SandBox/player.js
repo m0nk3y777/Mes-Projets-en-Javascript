@@ -28,6 +28,7 @@ class Personnage {
                 console.log("Deplacement vers la gauche")
             }
         this.checkLimits()
+        this.checkCollisions()
         this.spawnPosition()
     }
 
@@ -52,5 +53,13 @@ class Personnage {
             this.position [1] = 0
         }
     }
-    
+
+    checkCollisions(){
+        if (this.position[0] >= ennemy.position [0] 
+            && this.position[0] < ennemy.position[0] + EnnemyWidth
+            && this.position[1] >= ennemy.position[1]
+            && this.position[1]< ennemy.position[1] + EnnemyHeight ){
+                console.log("COLLISION!!")
+        }
+    }
 }

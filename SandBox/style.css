@@ -1,0 +1,51 @@
+body{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    margin-top : 60px;
+    text-align: center;
+    font-family: 'MedievalSharp', serif;
+    color: #FFD700;
+    letter-spacing: 4px;
+}
+
+.game-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container{
+    margin-top: 40px;
+    width: 700px;
+    height: 500px;
+    background-color: sandybrown;
+    opacity: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    position : relative;
+}
+
+.container .sprite{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position : absolute;
+}
+
+.container .ennemySprite{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+    position : absolute;
+}
+
+.walls{
+    width: 40px;
+    height: 150px;
+    background-color: black;
+}

@@ -55,11 +55,21 @@ class Personnage {
     }
 
     checkCollisions(){
-        if (this.position[0] >= ennemy.position [0] 
-            && this.position[0] < ennemy.position[0] + EnnemyWidth
-            && this.position[1] >= ennemy.position[1]
+        if (this.position[0] + playerWidth > ennemy.position [0] 
+            && this.position[0]  < ennemy.position[0] + EnnemyWidth
+            && this.position[1] + playerHeight > ennemy.position[1]
             && this.position[1]< ennemy.position[1] + EnnemyHeight ){
                 console.log("COLLISION!!")
-        }
+                if (this.position[0] - ennemy.position[0] > 0){
+                    this.position[0] = ennemy.position[0]+EnnemyWidth
+                } else if (this.position[0] - ennemy.position[0] < 0){
+                    this.position[0] = ennemy.position[0]-EnnemyWidth
+                } 
+                if (this.position[1] - ennemy.position[1] > 0){
+                    this.position[1] = ennemy.position[1]+EnnemyHeight
+                } else if (this.position[1] - ennemy.position[1] < 0){
+                    this.position[1] = ennemy.position[1]-EnnemyHeight
+                }
+        }   
     }
 }

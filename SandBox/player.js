@@ -6,6 +6,7 @@ class Personnage {
         this.health = 100
         this.element = document.createElement("div")
         this.element.classList.add("sprite")
+        this.element.style.backgroundImage = "url('src/ToguFace.png')"
         map.appendChild(this.element)
     }
     spawnPosition(){
@@ -16,15 +17,19 @@ class Personnage {
     mouvPersonnage(){
             if (direction.Bas){
                 this.position[1] -= this.speedY
+                this.element.style.backgroundImage = "url('src/ToguFace.png')"
                 console.log("Deplacement vers le bas")
             } else if (direction.Haut){
                 this.position[1] += this.speedY
                 console.log("Deplacement vers le haut")
+                this.element.style.backgroundImage = "url('src/ToguBack.png')"
             }else if (direction.Droite){
                 this.position[0] += this.speedX
+                this.element.style.backgroundImage = "url('src/ToguRight.png')"
                 console.log("Deplacement vers la droite")
             }else if (direction.Gauche){
                 this.position[0] -= this.speedX
+                this.element.style.backgroundImage = "url('src/ToguLeft.png')"
                 console.log("Deplacement vers la gauche")
             }
         this.checkLimits()

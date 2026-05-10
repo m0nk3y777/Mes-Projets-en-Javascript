@@ -1,8 +1,8 @@
 class Personnage {
     constructor(xPos, yPos){
         this.position = [xPos,yPos]
-        this.speedX = 3
-        this.speedY = 3
+        this.speedX = 1
+        this.speedY = 1
         this.health = 100
         this.element = document.createElement("div")
         this.element.classList.add("sprite")
@@ -75,6 +75,43 @@ class Personnage {
                 } else if (this.position[1] - ennemy.position[1] < 0){
                     this.position[1] = ennemy.position[1]-EnnemyHeight
                 }
-        }   
+            }
+
+        isNear = false
+        
+        rocks.forEach(rock => {
+            if (this.position[0] + playerWidth > rock.position[0]
+                && this.position[0] < rock.position[0] + RockWidth
+                && this.position[1] + playerHeight > rock.position[1]
+                && this.position[1] < rock.position[1] + RockHeight) {
+
+                const superpoX = Math.min(this.position[0] + playerWidth, rock.position[0] + RockWidth) - Math.max(this.position[0], rock.position[0])
+                const superpoY = Math.min(this.position[1] + playerHeight, rock.position[1] + RockHeight) - Math.max(this.position[1], rock.position[1])
+
+                if (superpoX < superpoY) {
+                    if (this.position[0] > rock.position[0]) {
+                        this.position[0] = rock.position[0] + RockWidth
+                    } else {
+                        this.position[0] = rock.position[0] - playerWidth
+                    }
+                } else {
+                    if (this.position[1] > rock.position[1]) {
+                        this.position[1] = rock.position[1] + RockHeight
+                    } else {
+                        this.position[1] = rock.position[1] - playerHeight
+                    }
+                }
+            }
+
+            if( rock.position[0] - (this.position[0] + playerWidth) < 5 &&  
+                this.position[0] - (rock.position[0] + RockWidth) < 5 &&  
+                this.position[1] - (rock.position[1] + RockHeight) < 5 &&
+                rock.position[1] - (this.position[1] + playerHeight) < 5){
+                    isNear = true
+                    console.log("MINABLE")
+                }
+        });   
     }
+
+
 }

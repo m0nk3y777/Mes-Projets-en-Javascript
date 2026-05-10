@@ -5,11 +5,13 @@ const mapWidth = 700
 const mapHeight = 500
 const playerCamp = (mapWidth/2) - 50
 
+pause()
 // GENERATION ET DEPLACEMENTS DU PLAYER
 
 const playerWidth = 20
 const playerHeight = 34
 const direction = {"Haut": false, "Bas" : false, "Gauche":false , "Droite": false}
+let isNear = false
 function updateDirection(e,isPressed){
     switch (e.key) {
         case "ArrowDown":
@@ -32,6 +34,8 @@ const player = new Personnage(20,20)
 document.addEventListener("keydown", (e) => updateDirection(e,true))
 document.addEventListener("keyup", (e) => updateDirection(e,false))
 player.spawnPosition()
+
+
 
 // GENERATE  ET MOUVEMENTS ENNEMIES
 const EnnemyWidth = 20
@@ -66,9 +70,11 @@ for (let i = 0; i< ROCK_MAX ; i++ ){
 
 function update() {
   requestAnimationFrame(() => {
-    player.mouvPersonnage()
-    ennemy.spawnPosition()
-    ennemy.ennemyMouv()
+    if(!isPaused){
+        player.mouvPersonnage()
+        ennemy.spawnPosition()
+        ennemy.ennemyMouv()
+    }
     update();
   });
 }

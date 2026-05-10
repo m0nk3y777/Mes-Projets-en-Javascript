@@ -1,8 +1,8 @@
 class Ennemy{
     constructor(xPos, yPos){
         this.position = [xPos,yPos]
-        this.speedX = 2
-        this.speedY = 2
+        this.speedX = 0.5
+        this.speedY = 0.5
         this.health = 100
         this.element = document.createElement("div")
         this.element.classList.add("ennemySprite")

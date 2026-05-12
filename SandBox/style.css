@@ -114,3 +114,19 @@ h1{
     height: 150px;
     background-color: black;
 }
+
+.rock-healthbar-fill {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 4px;
+    width: 30px;
+    height: 5px;
+    background-color: #e74c3c;
+    display: none;
+}
+
+.rock-healthbar-fill.visible {
+    display: block;
+}

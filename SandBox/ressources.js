@@ -1,5 +1,6 @@
 class Tree{
     constructor (xPos,yPos){
+        this.health = 20
         this.position = [xPos,yPos]
         this.element = document.createElement("div")
         this.element.classList.add("spriteTree")
@@ -15,11 +16,16 @@ class Tree{
 
 class Rock{
     constructor (xPos,yPos){
+        
+        this.health = 30
         this.position = [xPos,yPos]
         this.element = document.createElement("div")
         this.element.classList.add("spriteRock")
         map.appendChild(this.element)
         this.element.style.backgroundImage = "url('src/Rock.png')"
+        this.healthBar = document.createElement("div")
+        this.healthBar.classList.add("rock-healthbar-fill")
+        this.element.appendChild(this.healthBar)
     }
 
     spawnPosition(){

@@ -26,6 +26,9 @@ function updateDirection(e,isPressed){
         case "ArrowRight":
             direction.Droite = isPressed
             break;
+        case " ":
+            actions.Mine = isPressed
+            break;
         default:
             break;
     }
@@ -34,6 +37,11 @@ const player = new Personnage(20,20)
 document.addEventListener("keydown", (e) => updateDirection(e,true))
 document.addEventListener("keyup", (e) => updateDirection(e,false))
 player.spawnPosition()
+
+// ACTIONS POSSIBLE ==> Tout dans updateDirection() plus facile de s'y retrouver
+const actions = { "Mine": false, "Bucheron": false, "Fight": false }
+
+
 
 
 

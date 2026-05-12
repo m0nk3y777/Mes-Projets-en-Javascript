@@ -1,9 +1,10 @@
 class Personnage {
     constructor(xPos, yPos){
         this.position = [xPos,yPos]
-        this.speedX = 1
-        this.speedY = 1
+        this.speedX = 3
+        this.speedY = 3
         this.health = 100
+        this.cooldownMetier = 0
         this.element = document.createElement("div")
         this.element.classList.add("sprite")
         this.element.style.backgroundImage = "url('src/ToguFace.png')"
@@ -108,7 +109,25 @@ class Personnage {
                 this.position[1] - (rock.position[1] + RockHeight) < 5 &&
                 rock.position[1] - (this.position[1] + playerHeight) < 5){
                     isNear = true
-                    console.log("MINABLE")
+                    if ( actions.Mine){ 
+                        rock.healthBar.classList.add("visible")
+                        // Gestion du cooldown 
+                        const timestamp = Date.now()
+                        if(timestamp - this.cooldownMetier >= 500){
+                            console.log("Tentative de minage")
+                            rock.health -= 5
+                            rock.healthBar.style.width = rock.health + "px"
+                            this.cooldownMetier = timestamp
+                        }
+
+                        if(rock.health <= 0){
+                            rock.element.remove
+                            rocks.splice(rocks.indexOf(rock),1)                        
+                        }
+
+
+                    console.log(rock.health)
+                    }
                 }
         });   
     }

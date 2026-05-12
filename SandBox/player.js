@@ -5,6 +5,8 @@ class Personnage {
         this.speedY = 3
         this.health = 100
         this.cooldownMetier = 0
+        this.rock = 0
+        this.wood = 0
         this.element = document.createElement("div")
         this.element.classList.add("sprite")
         this.element.style.backgroundImage = "url('src/ToguFace.png')"
@@ -121,12 +123,11 @@ class Personnage {
                         }
 
                         if(rock.health <= 0){
-                            rock.element.remove
-                            rocks.splice(rocks.indexOf(rock),1)                        
+                            rock.element.remove()
+                            rocks.splice(rocks.indexOf(rock),1)     
+                            this.rock +=1         
+                            rockHUD.innerHTML = "x "+ this.rock         
                         }
-
-
-                    console.log(rock.health)
                     }
                 }
         });   

@@ -5,6 +5,11 @@ const mapWidth = 700
 const mapHeight = 500
 const playerCamp = (mapWidth/2) - 50
 
+//HUD CHARGEMENT
+
+const woodHUD = document.getElementById("woodCount")
+const rockHUD = document.getElementById("rockCount")
+
 pause()
 // GENERATION ET DEPLACEMENTS DU PLAYER
 
